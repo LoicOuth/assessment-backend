@@ -1,4 +1,4 @@
-import ShopItem from '#models/shop_item'
+import ShopItem from '#DI3/models/shop_item'
 import { DateTime } from 'luxon'
 
 export default class ShopItemDto {

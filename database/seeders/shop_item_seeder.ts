@@ -1,6 +1,6 @@
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
-import ShopItem from '#models/shop_item'
-import PexelsService from '#services/pexels_service'
+import ShopItem from '#DI3/models/shop_item'
+import PexelsService from '#DI3/services/pexels_service'
 
 export default class extends BaseSeeder {
   async run() {

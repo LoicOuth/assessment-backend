@@ -1,9 +1,9 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import { paymentRequestValidator } from '#validators/payment_request'
-import { ERROR_CODES } from '#constants/error_codes'
-import PaymentHistory from '#models/payment_history'
-import PaymentHistoryDto from '#dtos/payment_history_dto'
-import ShopItem from '#models/shop_item'
+import { paymentRequestValidator } from '#DI3/validators/payment_request'
+import { ERROR_CODES } from '#DI3/constants/error_codes'
+import PaymentHistory from '#DI3/models/payment_history'
+import PaymentHistoryDto from '#DI3/dtos/payment_history_dto'
+import ShopItem from '#DI3/models/shop_item'
 
 export default class PaymentsController {
   private readonly VALID_CARD_NUMBER = '4111111111111111'

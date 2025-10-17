@@ -1,5 +1,5 @@
-import PaymentHistory from '#models/payment_history'
-import ShopItemDto from './shop_item_dto.js'
+import PaymentHistory from '#DI3/models/payment_history'
+import ShopItemDto from '#DI3/dtos/shop_item_dto'
 
 export default class PaymentHistoryDto {
   public id: number

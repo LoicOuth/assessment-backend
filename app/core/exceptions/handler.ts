@@ -1,13 +1,19 @@
 import app from '@adonisjs/core/services/app'
 import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
 import logger from '@adonisjs/core/services/logger'
-import { ERROR_CODES } from '#constants/error_codes'
+import { ERROR_CODES } from '#DI3/constants/error_codes'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   protected debug = !app.inProduction
 
   async handle(error: unknown, ctx: HttpContext) {
     if (error instanceof Error) {
+      if ('status' in error) {
+        if (error.status === 404) {
+          return ctx.response.notFound()
+        }
+      }
+
       logger.error('Unhandled error occurred', {
         error: error.message,
         stack: error.stack,

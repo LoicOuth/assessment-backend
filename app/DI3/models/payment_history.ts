@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, manyToMany } from '@adonisjs/lucid/orm'
 import type { ManyToMany } from '@adonisjs/lucid/types/relations'
-import ShopItem from './shop_item.js'
+import ShopItem from '#DI3/models/shop_item'
 
 export default class PaymentHistory extends BaseModel {
   static table = 'payment_histories'

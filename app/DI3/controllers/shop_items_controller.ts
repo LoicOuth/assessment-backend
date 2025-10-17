@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import ShopItem from '#models/shop_item'
-import ShopItemDto from '#dtos/shop_item_dto'
-import { ERROR_CODES } from '#constants/error_codes'
+import ShopItem from '#DI3/models/shop_item'
+import ShopItemDto from '#DI3/dtos/shop_item_dto'
+import { ERROR_CODES } from '#DI3/constants/error_codes'
 
 export default class ShopItemsController {
   async index({ request, response }: HttpContext) {
