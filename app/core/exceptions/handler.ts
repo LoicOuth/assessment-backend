@@ -1,12 +1,21 @@
 import app from '@adonisjs/core/services/app'
 import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
 import logger from '@adonisjs/core/services/logger'
+import { errors as vineErrors } from '@vinejs/vine'
 import { ERROR_CODES } from '#DI3/constants/error_codes'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   protected debug = !app.inProduction
 
   async handle(error: unknown, ctx: HttpContext) {
+    if (error instanceof vineErrors.E_VALIDATION_ERROR) {
+      return ctx.response.unprocessableEntity({
+        error: 'VALIDATION_ERROR',
+        message: 'Validation failed',
+        errors: error.messages,
+      })
+    }
+
     if (error instanceof Error) {
       if ('status' in error) {
         if (error.status === 404) {
