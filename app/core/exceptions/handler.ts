@@ -14,15 +14,12 @@ export default class HttpExceptionHandler extends ExceptionHandler {
         }
       }
 
-      logger.error(
-        {
-          error: error.message,
-          stack: error.stack,
-          url: ctx.request.url(),
-          method: ctx.request.method(),
-        },
-        'Unhandled error occurred'
-      )
+      logger.error('Unhandled error occurred', {
+        error: error.message,
+        stack: error.stack,
+        url: ctx.request.url(),
+        method: ctx.request.method(),
+      })
 
       if (app.inProduction) {
         return ctx.response.internalServerError({ error: ERROR_CODES.INTERNAL_SERVER_ERROR })
